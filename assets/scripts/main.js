@@ -13,7 +13,7 @@ async function quotesGen() {
         quotesListedOnDom(data)
     }
     catch(error) {
-        // console.log(error)
+        console.log(error)
     }
 }
 
@@ -89,7 +89,7 @@ const quotesListedOnDom = (data) => {
             // push clicked data to a global array
             const quoteNumClicked = i
             const quoteText = data[i].text
-            const viewQuoteUrl = `/quote.html?${quoteText} - ${quoteNumClicked}`
+            const viewQuoteUrl = `/quote.html?${quoteText}`
             window.open(viewQuoteUrl, '_self')
         })
 
