@@ -1,3 +1,5 @@
+sessionStorage.setItem("author", "Gaius")
+
 const quotesContainer = document.querySelector(".quotes")
 
 async function quotesGen() {
@@ -11,7 +13,7 @@ async function quotesGen() {
         quotesListedOnDom(data)
     }
     catch(error) {
-        console.log(error)
+        // console.log(error)
     }
 }
 
@@ -85,7 +87,10 @@ const quotesListedOnDom = (data) => {
         quote.style.borderBottom = "2px solid black"
         quote.addEventListener('click', () => {
             // push clicked data to a global array
-            window.open('/quote.html', '_self')
+            const quoteNumClicked = i
+            const quoteText = data[i].text
+            const viewQuoteUrl = `/quote.html?${quoteText} - ${quoteNumClicked}`
+            window.open(viewQuoteUrl, '_self')
         })
 
         maxQuotes++
